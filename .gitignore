@@ -1,0 +1,33 @@
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+
+# Virtual Environment
+venv/
+
+
+# IDE / Editor
+.vscode/
+
+
+# Application Data (user-specific)
+.mdr_logger/
+*.log
+*.json
+recordings/
+exports/
+*.csv
+
+
+# Testing
+.pytest_cache/
+
+
+
+
+# Environment Variables
+.env
+.env.local
+.env.*.local

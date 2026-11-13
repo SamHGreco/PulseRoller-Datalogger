@@ -38,7 +38,7 @@ class SpeedControlTab(QWidget):
 
     SPEED_TAG = "MDR_Speed_Setting"
     MIN_SPEED = 0
-    MAX_SPEED = 100
+    MAX_SPEED = 5000
 
     def __init__(self, plc_manager: PLCManager):
         super().__init__()
@@ -61,7 +61,7 @@ class SpeedControlTab(QWidget):
 
         # Speed input
         input_layout = QHBoxLayout()
-        input_layout.addWidget(QLabel("New Speed Value (0-100):"))
+        input_layout.addWidget(QLabel("New Speed Value (0-5000 (mm/s)):"))
 
         self.speed_input = QSpinBox()
         self.speed_input.setMinimum(self.MIN_SPEED)
