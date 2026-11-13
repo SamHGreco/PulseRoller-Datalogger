@@ -31,3 +31,5 @@ exports/
 .env
 .env.local
 .env.*.local
+*.pyc
+plc/__pycache__/plc_manager.cpython-314.pyc
