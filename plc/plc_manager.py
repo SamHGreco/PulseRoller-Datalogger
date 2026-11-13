@@ -166,7 +166,7 @@ class PLCManager(QObject):
         Args:
             tag: Tag name
             value: Value to write (typically DINT)
-            data_type: Data type (default "DINT")
+            data_type: Data type (default "DINT") - note: pycomm3 infers type automatically
             
         Returns:
             True if write successful, False otherwise
@@ -176,11 +176,20 @@ class PLCManager(QObject):
             return False
 
         try:
-            self._plc.write(tag, value, data_type)
-            logger.info(f"Wrote {tag} = {value} ({data_type})")
+            # pycomm3 write signature: write((tag, value), (tag2, value2), ...)
+            # Pass as (tag, value) tuple. pycomm3 automatically infers data type.
+            self._plc.write((tag, value))
+            logger.info(f"Wrote {tag} = {value}")
             return True
         except CommError as e:
             error_msg = f"Failed to write {tag}: {str(e)}"
+            logger.error(error_msg)
+            self._last_error = error_msg
+            self.ErrorOccurred.emit(error_msg)
+            self._samples_failed += 1
+            return False
+        except Exception as e:
+            error_msg = f"Error writing {tag}: {str(e)}"
             logger.error(error_msg)
             self._last_error = error_msg
             self.ErrorOccurred.emit(error_msg)
