@@ -1,0 +1,28 @@
+{
+  "motors": [
+    {
+      "motor_id": "motor_001",
+      "name": "Motor 1 - Left MDR (Line 1)",
+      "plc_tag": "ConveylinxAi2_1AOI.I_Current_Left_MDR",
+      "enabled": true
+    },
+    {
+      "motor_id": "motor_002",
+      "name": "Motor 2 - Right MDR (Line 1)",
+      "plc_tag": "ConveylinxAi2_1AOI.I_Current_Right_MDR",
+      "enabled": true
+    },
+    {
+      "motor_id": "motor_003",
+      "name": "Motor 3 - Left MDR (Line 2)",
+      "plc_tag": "ConveylinxAi2_2AOI.I_Current_Left_MDR",
+      "enabled": true
+    },
+    {
+      "motor_id": "motor_004",
+      "name": "Motor 4 - Right MDR (Line 2)",
+      "plc_tag": "ConveylinxAi2_2AOI.I_Current_Right_MDR",
+      "enabled": true
+    }
+  ]
+}
